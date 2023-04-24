@@ -1,0 +1,364 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Mon Apr 24 16:13:54 2023
+# Process ID: 38609
+# Current directory: /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx
+# Command line: vivado
+# Log file: /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado.log
+# Journal file: /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado.jou
+# Running On: luiscarlos-GL552VX, OS: Linux, CPU Frequency: 2600.000 MHz, CPU Physical cores: 4, Host memory: 8225 MB
+#-----------------------------------------------------------
+start_gui
+create_project ultra96v2_dfx /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx -part xczu3eg-sbva484-1-i
+set_property board_part avnet.com:ultra96v2:part0:1.2 [current_project]
+add_files -norecurse -scan_for_includes /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/src/design/icap_inst.v
+update_compile_order -fileset sources_1
+create_bd_design "design_1"
+update_compile_order -fileset sources_1
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.3 zynq_ultra_ps_e_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:zynq_ultra_ps_e -config {apply_board_preset "1" }  [get_bd_cells zynq_ultra_ps_e_0]
+create_bd_cell -type hier rp_1
+delete_bd_objs [get_bd_cells rp_1]
+connect_bd_net [get_bd_pins zynq_ultra_ps_e_0/pl_clk0] [get_bd_pins zynq_ultra_ps_e_0/maxihpm0_fpd_aclk]
+connect_bd_net [get_bd_pins zynq_ultra_ps_e_0/maxihpm1_fpd_aclk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Clk_slave {Auto} Clk_xbar {Auto} Master {/zynq_ultra_ps_e_0/M_AXI_HPM0_FPD} Slave {/axi_gpio_0/S_AXI} ddr_seg {Auto} intc_ip {New AXI Interconnect} master_apm {0}}  [get_bd_intf_pins axi_gpio_0/S_AXI]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Clk_slave {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Clk_xbar {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Master {/zynq_ultra_ps_e_0/M_AXI_HPM1_FPD} Slave {/axi_gpio_0/S_AXI} ddr_seg {Auto} intc_ip {/ps8_0_axi_periph} master_apm {0}}  [get_bd_intf_pins zynq_ultra_ps_e_0/M_AXI_HPM1_FPD]
+startgroup
+set_property -dict [list CONFIG.C_ALL_INPUTS {1}] [get_bd_cells axi_gpio_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property -dict [list CONFIG.CONST_WIDTH {32} CONFIG.CONST_VAL {0x53}] [get_bd_cells xlconstant_0]
+connect_bd_net [get_bd_pins axi_gpio_0/gpio_io_i] [get_bd_pins xlconstant_0/dout]
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.PSU__USE__S_AXI_GP0 {1}] [get_bd_cells zynq_ultra_ps_e_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:dfx_controller:1.0 dfx_controller_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {Auto} Clk_slave {Auto} Clk_xbar {Auto} Master {/dfx_controller_0/M_AXI_MEM} Slave {/zynq_ultra_ps_e_0/S_AXI_HPC0_FPD} ddr_seg {Auto} intc_ip {New AXI SmartConnect} master_apm {0}}  [get_bd_intf_pins zynq_ultra_ps_e_0/S_AXI_HPC0_FPD]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Clk_slave {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Clk_xbar {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Master {/zynq_ultra_ps_e_0/M_AXI_HPM0_FPD} Slave {/dfx_controller_0/s_axi_reg} ddr_seg {Auto} intc_ip {/ps8_0_axi_periph} master_apm {0}}  [get_bd_intf_pins dfx_controller_0/s_axi_reg]
+connect_bd_net [get_bd_pins dfx_controller_0/icap_clk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+connect_bd_net [get_bd_pins dfx_controller_0/icap_reset] [get_bd_pins rst_ps8_0_100M/peripheral_aresetn]
+create_bd_cell -type module -reference icap_inst icap_inst_0
+regenerate_bd_layout
+set_property location {3 946 -22} [get_bd_cells icap_inst_0]
+connect_bd_intf_net [get_bd_intf_pins icap_inst_0/ICAP] [get_bd_intf_pins dfx_controller_0/ICAP]
+connect_bd_net [get_bd_pins icap_inst_0/CLK] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+regenerate_bd_layout
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.ALL_PARAMS {HAS_AXI_LITE_IF 1 RESET_ACTIVE_LEVEL 0 CP_FIFO_DEPTH 32 CP_FIFO_TYPE lutram CDC_STAGES 6 VS {VS_1 {ID 0 NAME VS_1 RM {RP_1 {ID 0 NAME RP_1 BS {0 {ID 0 ADDR 0 SIZE 0 CLEAR 0}}}} POR_RM RP_1 HAS_POR_RM 1} VS_2 {ID 1 NAME VS_2 RM {RP_2 {ID 0 NAME RP_2 BS {0 {ID 0 ADDR 0 SIZE 0 CLEAR 0}}}} HAS_POR_RM 1 POR_RM RP_2} VS_3 {ID 2 NAME VS_3 RM {RP_3 {ID 0 NAME RP_3 BS {0 {ID 0 ADDR 0 SIZE 0 CLEAR 0}}}}}} CP_FAMILY ultrascale_plus DIRTY 0} CONFIG.GUI_SELECT_VS {2} CONFIG.GUI_VS_NEW_NAME {VS_3} CONFIG.GUI_VS_HAS_POR_RM {0} CONFIG.GUI_VS_POR_RM {0} CONFIG.GUI_SELECT_RM {0} CONFIG.GUI_RM_NEW_NAME {RP_3} CONFIG.GUI_SELECT_TRIGGER_0 {0} CONFIG.GUI_SELECT_TRIGGER_1 {0} CONFIG.GUI_SELECT_TRIGGER_2 {0} CONFIG.GUI_SELECT_TRIGGER_3 {0}] [get_bd_cells dfx_controller_0]
+endgroup
+group_bd_cells RP_1 [get_bd_cells axi_gpio_0] [get_bd_cells xlconstant_0]
+validate_bd_design
+regenerate_bd_layout
+ungroup_bd_cells [get_bd_cells RP_1]
+delete_bd_objs [get_bd_nets xlconstant_0_dout] [get_bd_cells xlconstant_0]
+startgroup
+set_property -dict [list CONFIG.C_GPIO_WIDTH {4} CONFIG.C_ALL_INPUTS {0}] [get_bd_cells axi_gpio_0]
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {Auto}}  [get_bd_intf_pins axi_gpio_0/GPIO]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_1
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_2
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_3
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property location {4 1787 539} [get_bd_cells xlconstant_0]
+set_property location {4.5 1804 579} [get_bd_cells xlconstant_0]
+set_property location {4 1404 497} [get_bd_cells axi_gpio_1]
+set_property location {4.5 1715 509} [get_bd_cells xlconstant_0]
+set_property -dict [list CONFIG.C_ALL_INPUTS {1}] [get_bd_cells axi_gpio_1]
+delete_bd_objs [get_bd_cells xlconstant_0]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Master {/zynq_ultra_ps_e_0/M_AXI_HPM0_FPD} Slave {/axi_gpio_1/S_AXI} ddr_seg {Auto} intc_ip {/ps8_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_gpio_1/S_AXI]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Master {/zynq_ultra_ps_e_0/M_AXI_HPM0_FPD} Slave {/axi_gpio_2/S_AXI} ddr_seg {Auto} intc_ip {/ps8_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_gpio_2/S_AXI]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Master {/zynq_ultra_ps_e_0/M_AXI_HPM0_FPD} Slave {/axi_gpio_3/S_AXI} ddr_seg {Auto} intc_ip {/ps8_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_gpio_3/S_AXI]
+endgroup
+group_bd_cells RP_1 [get_bd_cells axi_gpio_1]
+group_bd_cells RP_2 [get_bd_cells axi_gpio_2]
+group_bd_cells RP_3 [get_bd_cells axi_gpio_3]
+regenerate_bd_layout
+validate_bd_design
+startgroup
+set curdesign [current_bd_design]
+create_bd_design -cell [get_bd_cells /RP_1] RP_1_IP_const
+current_bd_design $curdesign
+set new_cell [create_bd_cell -type container -reference RP_1_IP_const RP_1_temp]
+replace_bd_cell [get_bd_cells /RP_1] $new_cell
+delete_bd_objs  [get_bd_cells /RP_1]
+set_property name RP_1 $new_cell
+endgroup
+current_bd_design [get_bd_designs RP_1_IP_const]
+update_compile_order -fileset sources_1
+startgroup
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property -dict [list CONFIG.CONST_WIDTH {32} CONFIG.CONST_VAL {53}] [get_bd_cells xlconstant_0]
+connect_bd_net [get_bd_pins xlconstant_0/dout] [get_bd_pins axi_gpio_1/gpio_io_i]
+validate_bd_design
+save_bd_design
+upgrade_bd_cells [get_bd_cells /RP_1]
+validate_bd_design
+startgroup
+set curdesign [current_bd_design]
+create_bd_design -cell [get_bd_cells /RP_3] RP_3_IP_const
+current_bd_design $curdesign
+set new_cell [create_bd_cell -type container -reference RP_3_IP_const RP_3_temp]
+replace_bd_cell [get_bd_cells /RP_3] $new_cell
+delete_bd_objs  [get_bd_cells /RP_3]
+set_property name RP_3 $new_cell
+endgroup
+current_bd_design [get_bd_designs RP_3_IP_const]
+update_compile_order -fileset sources_1
+current_bd_design [get_bd_designs design_1]
+validate_bd_design
+startgroup
+set curdesign [current_bd_design]
+create_bd_design -cell [get_bd_cells /RP_2] RP_2_IP_const
+current_bd_design $curdesign
+set new_cell [create_bd_cell -type container -reference RP_2_IP_const RP_2_temp]
+replace_bd_cell [get_bd_cells /RP_2] $new_cell
+delete_bd_objs  [get_bd_cells /RP_2]
+set_property name RP_2 $new_cell
+endgroup
+current_bd_design [get_bd_designs RP_2_IP_const]
+update_compile_order -fileset sources_1
+current_bd_design [get_bd_designs RP_3_IP_const]
+validate_bd_design -force
+current_bd_design [get_bd_designs RP_2_IP_const]
+validate_bd_design -force
+current_bd_design [get_bd_designs RP_3_IP_const]
+save_bd_design
+current_bd_design [get_bd_designs RP_2_IP_const]
+save_bd_design
+current_bd_design [get_bd_designs design_1]
+validate_bd_design
+set_property PR_FLOW 1 [current_project] 
+save_bd_design
+create_bd_design "my_axi_const33"
+update_compile_order -fileset sources_1
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property -dict [list CONFIG.CONST_WIDTH {32} CONFIG.CONST_VAL {33}] [get_bd_cells xlconstant_0]
+set_property -dict [list CONFIG.C_ALL_INPUTS {1}] [get_bd_cells axi_gpio_0]
+connect_bd_net [get_bd_pins xlconstant_0/dout] [get_bd_pins axi_gpio_0/gpio_io_i]
+validate_bd_design
+startgroup
+create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S_AXI
+set_property -dict [list CONFIG.PROTOCOL [get_property CONFIG.PROTOCOL [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.ADDR_WIDTH [get_property CONFIG.ADDR_WIDTH [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_BURST [get_property CONFIG.HAS_BURST [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_LOCK [get_property CONFIG.HAS_LOCK [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_PROT [get_property CONFIG.HAS_PROT [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_CACHE [get_property CONFIG.HAS_CACHE [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_QOS [get_property CONFIG.HAS_QOS [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_REGION [get_property CONFIG.HAS_REGION [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.SUPPORTS_NARROW_BURST [get_property CONFIG.SUPPORTS_NARROW_BURST [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.MAX_BURST_LENGTH [get_property CONFIG.MAX_BURST_LENGTH [get_bd_intf_pins axi_gpio_0/S_AXI]]] [get_bd_intf_ports S_AXI]
+connect_bd_intf_net [get_bd_intf_pins axi_gpio_0/S_AXI] [get_bd_intf_ports S_AXI]
+endgroup
+startgroup
+create_bd_port -dir I -type clk -freq_hz 100000000 s_axi_aclk
+connect_bd_net [get_bd_pins /axi_gpio_0/s_axi_aclk] [get_bd_ports s_axi_aclk]
+endgroup
+startgroup
+create_bd_port -dir I -type rst s_axi_aresetn
+connect_bd_net [get_bd_pins /axi_gpio_0/s_axi_aresetn] [get_bd_ports s_axi_aresetn]
+endgroup
+assign_bd_address
+validate_bd_design
+regenerate_bd_layout
+save_bd_design
+close_bd_design [get_bd_designs my_axi_const33]
+current_bd_design [get_bd_designs RP_2_IP_const]
+close_bd_design [get_bd_designs RP_2_IP_const]
+current_bd_design [get_bd_designs RP_3_IP_const]
+close_bd_design [get_bd_designs RP_3_IP_const]
+close_bd_design [get_bd_designs RP_1_IP_const]
+create_bd_design "my_axi_const44"
+update_compile_order -fileset sources_1
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property -dict [list CONFIG.CONST_WIDTH {32} CONFIG.CONST_VAL {44}] [get_bd_cells xlconstant_0]
+set_property -dict [list CONFIG.C_ALL_INPUTS {1}] [get_bd_cells axi_gpio_0]
+connect_bd_net [get_bd_pins xlconstant_0/dout] [get_bd_pins axi_gpio_0/gpio_io_i]
+startgroup
+create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S_AXI
+set_property -dict [list CONFIG.PROTOCOL [get_property CONFIG.PROTOCOL [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.ADDR_WIDTH [get_property CONFIG.ADDR_WIDTH [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_BURST [get_property CONFIG.HAS_BURST [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_LOCK [get_property CONFIG.HAS_LOCK [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_PROT [get_property CONFIG.HAS_PROT [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_CACHE [get_property CONFIG.HAS_CACHE [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_QOS [get_property CONFIG.HAS_QOS [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_REGION [get_property CONFIG.HAS_REGION [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.SUPPORTS_NARROW_BURST [get_property CONFIG.SUPPORTS_NARROW_BURST [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.MAX_BURST_LENGTH [get_property CONFIG.MAX_BURST_LENGTH [get_bd_intf_pins axi_gpio_0/S_AXI]]] [get_bd_intf_ports S_AXI]
+connect_bd_intf_net [get_bd_intf_pins axi_gpio_0/S_AXI] [get_bd_intf_ports S_AXI]
+endgroup
+startgroup
+create_bd_port -dir I -type clk -freq_hz 100000000 s_axi_aclk
+connect_bd_net [get_bd_pins /axi_gpio_0/s_axi_aclk] [get_bd_ports s_axi_aclk]
+endgroup
+startgroup
+create_bd_port -dir I -type rst s_axi_aresetn
+connect_bd_net [get_bd_pins /axi_gpio_0/s_axi_aresetn] [get_bd_ports s_axi_aresetn]
+endgroup
+regenerate_bd_layout
+assign_bd_address
+validate_bd_design
+save_bd_design
+close_bd_design [get_bd_designs my_axi_const44]
+create_bd_design "my_axi_const55"
+update_compile_order -fileset sources_1
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0
+endgroup
+set_property -dict [list CONFIG.C_ALL_INPUTS {1}] [get_bd_cells axi_gpio_0]
+connect_bd_net [get_bd_pins axi_gpio_0/gpio_io_i] [get_bd_pins xlconstant_0/dout]
+startgroup
+set_property -dict [list CONFIG.CONST_WIDTH {32} CONFIG.CONST_VAL {0x55}] [get_bd_cells xlconstant_0]
+endgroup
+startgroup
+create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S_AXI
+set_property -dict [list CONFIG.PROTOCOL [get_property CONFIG.PROTOCOL [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.ADDR_WIDTH [get_property CONFIG.ADDR_WIDTH [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_BURST [get_property CONFIG.HAS_BURST [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_LOCK [get_property CONFIG.HAS_LOCK [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_PROT [get_property CONFIG.HAS_PROT [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_CACHE [get_property CONFIG.HAS_CACHE [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_QOS [get_property CONFIG.HAS_QOS [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.HAS_REGION [get_property CONFIG.HAS_REGION [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.SUPPORTS_NARROW_BURST [get_property CONFIG.SUPPORTS_NARROW_BURST [get_bd_intf_pins axi_gpio_0/S_AXI]] CONFIG.MAX_BURST_LENGTH [get_property CONFIG.MAX_BURST_LENGTH [get_bd_intf_pins axi_gpio_0/S_AXI]]] [get_bd_intf_ports S_AXI]
+connect_bd_intf_net [get_bd_intf_pins axi_gpio_0/S_AXI] [get_bd_intf_ports S_AXI]
+endgroup
+startgroup
+create_bd_port -dir I -type clk -freq_hz 100000000 s_axi_aclk
+connect_bd_net [get_bd_pins /axi_gpio_0/s_axi_aclk] [get_bd_ports s_axi_aclk]
+endgroup
+startgroup
+create_bd_port -dir I -type rst s_axi_aresetn
+connect_bd_net [get_bd_pins /axi_gpio_0/s_axi_aresetn] [get_bd_ports s_axi_aresetn]
+endgroup
+regenerate_bd_layout
+assign_bd_address
+validate_bd_design
+save_bd_design
+close_bd_design [get_bd_designs my_axi_const55]
+current_bd_design [get_bd_designs design_1]
+open_bd_design {/home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.srcs/sources_1/bd/my_axi_const33/my_axi_const33.bd}
+startgroup
+set_property -dict [list CONFIG.CONST_VAL {0x33}] [get_bd_cells xlconstant_0]
+endgroup
+validate_bd_design
+save_bd_design
+current_bd_design [get_bd_designs design_1]
+current_bd_design [get_bd_designs my_axi_const33]
+close_bd_design [get_bd_designs my_axi_const33]
+current_bd_design [get_bd_designs design_1]
+open_bd_design {/home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.srcs/sources_1/bd/my_axi_const44/my_axi_const44.bd}
+startgroup
+set_property -dict [list CONFIG.CONST_VAL {0x44}] [get_bd_cells xlconstant_0]
+endgroup
+validate_bd_design
+regenerate_bd_layout
+save_bd_design
+current_bd_design [get_bd_designs design_1]
+current_bd_design [get_bd_designs my_axi_const44]
+close_bd_design [get_bd_designs my_axi_const44]
+current_bd_design [get_bd_designs design_1]
+set_property -dict [list CONFIG.ACTIVE_SYNTH_BD {my_axi_const33.bd} CONFIG.LOCK_PROPAGATE {true} CONFIG.ACTIVE_SIM_BD {my_axi_const33.bd} CONFIG.LIST_SYNTH_BD {my_axi_const33.bd:my_axi_const44.bd:my_axi_const55.bd} CONFIG.ENABLE_DFX {true} CONFIG.LIST_SIM_BD {my_axi_const33.bd:my_axi_const44.bd:my_axi_const55.bd}] [get_bd_cells RP_1]
+set_property APERTURES { } [get_bd_intf_pins /RP_1/S_AXI]
+current_bd_design [get_bd_designs design_1]
+validate_bd_design
+set_property -dict [list CONFIG.ACTIVE_SYNTH_BD {my_axi_const33.bd} CONFIG.LOCK_PROPAGATE {true} CONFIG.ACTIVE_SIM_BD {my_axi_const33.bd} CONFIG.LIST_SYNTH_BD {my_axi_const33.bd:my_axi_const44.bd:my_axi_const55.bd} CONFIG.ENABLE_DFX {true} CONFIG.LIST_SIM_BD {my_axi_const33.bd:my_axi_const44.bd:my_axi_const55.bd}] [get_bd_cells RP_3]
+set_property -dict [list CONFIG.ACTIVE_SYNTH_BD {my_axi_const33.bd} CONFIG.LOCK_PROPAGATE {true} CONFIG.ACTIVE_SIM_BD {my_axi_const33.bd} CONFIG.LIST_SYNTH_BD {my_axi_const33.bd:my_axi_const44.bd:my_axi_const55.bd} CONFIG.ENABLE_DFX {true} CONFIG.LIST_SIM_BD {my_axi_const33.bd:my_axi_const44.bd:my_axi_const55.bd}] [get_bd_cells RP_2]
+assign_bd_address
+validate_bd_design
+regenerate_bd_layout
+save_bd_design
+make_wrapper -files [get_files /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+generate_target all [get_files  /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.srcs/sources_1/bd/design_1/design_1.bd]
+catch { config_ip_cache -export [get_ips -all design_1_zynq_ultra_ps_e_0_0] }
+catch { config_ip_cache -export [get_ips -all design_1_xbar_0] }
+catch { config_ip_cache -export [get_ips -all design_1_rst_ps8_0_100M_0] }
+catch { config_ip_cache -export [get_ips -all design_1_dfx_controller_0_0] }
+catch { config_ip_cache -export [get_ips -all design_1_axi_smc_0] }
+catch { config_ip_cache -export [get_ips -all design_1_icap_inst_0_0] }
+catch { config_ip_cache -export [get_ips -all design_1_axi_gpio_0_0] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_ds_0] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_ds_1] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_1] }
+export_ip_user_files -of_objects [get_files /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs design_1_zynq_ultra_ps_e_0_0_synth_1 design_1_xbar_0_synth_1 design_1_rst_ps8_0_100M_0_synth_1 design_1_dfx_controller_0_0_synth_1 design_1_axi_smc_0_synth_1 design_1_icap_inst_0_0_synth_1 design_1_axi_gpio_0_0_synth_1 design_1_auto_ds_0_synth_1 design_1_auto_pc_0_synth_1 design_1_auto_ds_1_synth_1 design_1_auto_pc_1_synth_1 -jobs 2
+wait_on_run design_1_zynq_ultra_ps_e_0_0_synth_1
+wait_on_run design_1_xbar_0_synth_1
+wait_on_run design_1_rst_ps8_0_100M_0_synth_1
+wait_on_run design_1_dfx_controller_0_0_synth_1
+wait_on_run design_1_axi_smc_0_synth_1
+wait_on_run design_1_icap_inst_0_0_synth_1
+wait_on_run design_1_axi_gpio_0_0_synth_1
+wait_on_run design_1_auto_ds_0_synth_1
+wait_on_run design_1_auto_pc_0_synth_1
+wait_on_run design_1_auto_ds_1_synth_1
+wait_on_run design_1_auto_pc_1_synth_1
+export_simulation -of_objects [get_files /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.srcs/sources_1/bd/design_1/design_1.bd] -directory /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.ip_user_files/sim_scripts -ip_user_files_dir /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.ip_user_files -ipstatic_source_dir /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.cache/compile_simlib/modelsim} {questa=/home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.cache/compile_simlib/questa} {xcelium=/home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.cache/compile_simlib/xcelium} {vcs=/home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.cache/compile_simlib/vcs} {riviera=/home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vivado_project/ultra96v2_dfx/ultra96v2_dfx.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+create_pr_configuration -name config_1 -partitions [list design_1_i/RP_1:my_axi_const33_inst_0 design_1_i/RP_2:my_axi_const33_inst_2 design_1_i/RP_3:my_axi_const33_inst_1 ]
+create_pr_configuration -name config_2 -partitions [list design_1_i/RP_1:my_axi_const44_inst_0 design_1_i/RP_2:my_axi_const44_inst_1 design_1_i/RP_3:my_axi_const44_inst_2 ]
+create_pr_configuration -name config_3 -partitions [list design_1_i/RP_1:my_axi_const55_inst_0 design_1_i/RP_2:my_axi_const55_inst_1 design_1_i/RP_3:my_axi_const55_inst_2 ]
+set_property PR_CONFIGURATION config_1 [get_runs impl_1]
+create_run child_0_impl_1 -parent_run impl_1 -flow {Vivado Implementation 2021} -pr_config config_2
+create_run child_1_impl_1 -parent_run impl_1 -flow {Vivado Implementation 2021} -pr_config config_3
+open_run synth_1 -name synth_1 -pr_config [current_pr_configuration]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {gpio_rtl_tri_io[3]} {gpio_rtl_tri_io[2]} {gpio_rtl_tri_io[1]} {gpio_rtl_tri_io[0]}]]
+place_ports {gpio_rtl_tri_io[0]} F6
+place_ports {gpio_rtl_tri_io[1]} G5
+place_ports {gpio_rtl_tri_io[2]} A6
+place_ports {gpio_rtl_tri_io[3]} A7
+close [ open /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/src/constraints/IO_constraints.xdc w ]
+add_files -fileset constrs_1 /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/src/constraints/IO_constraints.xdc
+set_property target_constrs_file /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/src/constraints/IO_constraints.xdc [current_fileset -constrset]
+save_constraints -force
+startgroup
+create_pblock pblock_RP_1
+resize_pblock pblock_RP_1 -add CLOCKREGION_X1Y2:CLOCKREGION_X1Y2
+add_cells_to_pblock pblock_RP_1 [get_cells [list design_1_i/RP_1]] -clear_locs
+endgroup
+startgroup
+create_pblock pblock_RP_2
+resize_pblock pblock_RP_2 -add CLOCKREGION_X1Y1:CLOCKREGION_X1Y1
+add_cells_to_pblock pblock_RP_2 [get_cells [list design_1_i/RP_2]] -clear_locs
+endgroup
+startgroup
+create_pblock pblock_RP_3
+resize_pblock pblock_RP_3 -add CLOCKREGION_X1Y0:CLOCKREGION_X1Y0
+add_cells_to_pblock pblock_RP_3 [get_cells [list design_1_i/RP_3]] -clear_locs
+endgroup
+save_constraints
+pwd
+git init
+pwd
+git init .
+pwd
+pwd
+cd ..
+cd ..
+ls
+pwd
+git init .
+cd ..
+cd ..
+pwd
