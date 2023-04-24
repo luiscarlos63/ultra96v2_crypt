@@ -1,4 +1,7 @@
 vivado_project/*
-*.jou
-*.log
 *.str
+*.log
+*.jou
+.Xil/*
+hd_visual/*
+vivado_pid1282407.zip

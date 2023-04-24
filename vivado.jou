@@ -15,3 +15,5 @@ open_project /home/luiscarlos/Desktop/ultra/secure_tiles/vivado/ultra96v2_dfx/vi
 update_compile_order -fileset sources_1
 git init
 git add .
+git commit -m "first com"
+git add .
