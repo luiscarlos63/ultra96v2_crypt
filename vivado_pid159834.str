@@ -207,3 +207,33 @@ setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "git commit -m \"primei
 // TclEventType: FILE_SET_CHANGE
 // Tcl Message: INFO: [Vivado-projutils-8] Tcl script 'ultra96v2_dfx.tcl' generated in output directory '/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx'  INFO: [Vivado-projutils-15] The file paths for the project source files were set relative to the location of the generated script. 
 dismissDialog("Tcl Command Line"); // bA
+// Elapsed time: 115 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "git add .", true); // l
+// Tcl Command: 'git add .'
+// Tcl Command: 'git add .'
+// Tcl Message: git add . 
+// Tcl Command: 'rdi::match_options {git} { }'
+// Tcl Command: 'rdi::match_options {git} {}'
+// Elapsed time: 13 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "git commit -m \"ignore\"", true); // l
+// Tcl Command: 'git commit -m "ignore"'
+// Tcl Command: 'git commit -m "ignore"'
+// Tcl Message: git commit -m "ignore" 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [Vivado-projutils-8] Tcl script 'ultra96v2_dfx.tcl' generated in output directory '/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx'  INFO: [Vivado-projutils-15] The file paths for the project source files were set relative to the location of the generated script. 
+// Tcl Message: ultra96v2_dfx.tcl [master d8c55f4] ignore  4 files changed, 301 insertions(+) 
+dismissDialog("Tcl Command Line"); // bA
+// HMemoryUtils.trashcanNow. Engine heap size: 1,958 MB. GUI used memory: 89 MB. Current time: 7/19/23, 6:32:03 PM WEST
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 226ms to process. Increasing delay to 2000 ms.

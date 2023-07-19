@@ -371,3 +371,12 @@ ultra96v2_dfx.tcl
  create mode 100644 vivado.log
  create mode 100644 vivado_pid159834.str
 git add .
+git commit -m "ignore"
+WARNING: [Vivado 12-818] No files matched '*.bd'
+INFO: [Vivado-projutils-8] Tcl script 'ultra96v2_dfx.tcl' generated in output directory '/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx'
+
+INFO: [Vivado-projutils-15] The file paths for the project source files were set relative to the location of the generated script.
+ultra96v2_dfx.tcl
+[master d8c55f4] ignore
+ 4 files changed, 301 insertions(+)
+git add .

@@ -1,4 +1,4 @@
 vivado_project/*
-*.str
-*.jou
-.log
+./*.str
+./*.jou
+./*.log
