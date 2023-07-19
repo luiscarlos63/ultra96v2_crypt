@@ -19,3 +19,5 @@ update_compile_order -fileset sources_1
 add_files -fileset constrs_1 -norecurse /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/constraints/IO_constraints.xdc
 git init
 git add .
+git commit -m "primeiro commit deste projeto"
+git add .

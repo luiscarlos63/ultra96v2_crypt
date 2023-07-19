@@ -182,3 +182,28 @@ setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "git init", true); // l
 // Tcl Command: 'git init'
 // Tcl Command: 'git init'
 // Tcl Message: git init 
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "git add .", true); // l
+// Tcl Command: 'git add .'
+// Tcl Command: 'git add .'
+// Tcl Message: git add . 
+// Tcl Command: 'rdi::match_options {git} {}'
+// Elapsed time: 23 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "git commit -m \"primeiro commit deste projeto\"", true); // l
+// Tcl Command: 'git commit -m "primeiro commit deste projeto"'
+// Tcl Command: 'git commit -m "primeiro commit deste projeto"'
+// Tcl Message: git commit -m "primeiro commit deste projeto" 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [Vivado-projutils-8] Tcl script 'ultra96v2_dfx.tcl' generated in output directory '/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx'  INFO: [Vivado-projutils-15] The file paths for the project source files were set relative to the location of the generated script. 
+dismissDialog("Tcl Command Line"); // bA
