@@ -1,0 +1,6 @@
+
+Status:
+	a funcionar com o aes.v com a stream
+
+next:
+	meter o modulo de decrypt a funcionar dentro do aes.v 

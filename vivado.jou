@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed Jul 19 18:22:14 2023
+# Process ID: 159834
+# Current directory: /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx
+# Command line: vivado
+# Log file: /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/vivado.log
+# Journal file: /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/vivado.jou
+# Running On: luiscarlos-GL552VX, OS: Linux, CPU Frequency: 1257.880 MHz, CPU Physical cores: 4, Host memory: 8213 MB
+#-----------------------------------------------------------
+start_gui
+create_project ultra96v2_dfx /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/vivado_project -part xczu3eg-sbva484-1-i
+set_property board_part avnet.com:ultra96v2:part0:1.2 [current_project]
+add_files -norecurse -scan_for_includes {/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_encipher_block.v /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_core.v /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_decipher_block.v /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_sbox.v /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_inv_sbox.v /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/fifo_buff.v /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/icap_inst.v /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_key_mem.v /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -fileset constrs_1 -norecurse /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/constraints/IO_constraints.xdc
+git init
+git add .

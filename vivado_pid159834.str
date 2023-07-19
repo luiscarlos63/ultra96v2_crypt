@@ -1,0 +1,184 @@
+/*
+
+Xilinx Vivado v2021.2 (64-bit) [Major: 2021, Minor: 2]
+SW Build: 3367213 on Tue Oct 19 02:47:39 MDT 2021
+IP Build: 3369179 on Thu Oct 21 08:25:16 MDT 2021
+
+Process ID (PID): 159834
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Wed Jul 19 18:22:47 WEST 2023
+Time zone: 	Western European Standard Time (Europe/Lisbon)
+
+OS: Ubuntu
+OS Version: 5.15.0-76-generic
+OS Architecture: amd64
+Available processors (cores): 8
+
+Display: 0
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.11 64-bit
+Java home: 	/tools/Xilinx/Vivado/2021.2/tps/lnx64/jre11.0.11_9
+Java executable: 	/tools/Xilinx/Vivado/2021.2/tps/lnx64/jre11.0.11_9/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m, -Xrs]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	luiscarlos
+User home directory: /home/luiscarlos
+User working directory: /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /tools/Xilinx/Vivado
+HDI_APPROOT: /tools/Xilinx/Vivado/2021.2
+RDI_DATADIR: /tools/Xilinx/Vivado/2021.2/data
+RDI_BINDIR: /tools/Xilinx/Vivado/2021.2/bin
+
+Vivado preferences file: /home/luiscarlos/.Xilinx/Vivado/2021.2/vivado.xml
+Vivado preferences directory: /home/luiscarlos/.Xilinx/Vivado/2021.2/
+Vivado layouts directory: /home/luiscarlos/.Xilinx/Vivado/2021.2/data/layouts
+PlanAhead jar file: 	/tools/Xilinx/Vivado/2021.2/lib/classes/planAhead.jar
+Vivado log file: 	/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/vivado.log
+Vivado journal file: 	/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-159834-luiscarlos-GL552VX
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /tools/Xilinx/Vivado/2021.2/ids_lite/ISE
+XILINX_DSP: /tools/Xilinx/Vivado/2021.2/ids_lite/ISE
+XILINX_HLS: /tools/Xilinx/Vitis_HLS/2021.2
+XILINX_PLANAHEAD: /tools/Xilinx/Vivado/2021.2
+XILINX_SDK: /tools/Xilinx/Vitis/2021.2
+XILINX_VITIS: /tools/Xilinx/Vitis/2021.2
+XILINX_VIVADO: /tools/Xilinx/Vivado/2021.2
+XILINX_VIVADO_HLS: /tools/Xilinx/Vivado/2021.2
+XILINX_XRT: /opt/xilinx/xrt
+
+
+GUI allocated memory:	308 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,775 MB
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: Sourcing tcl script '/home/luiscarlos/.Xilinx/Vivado/Vivado_init.tcl' 
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,726 MB. GUI used memory: 54 MB. Current time: 7/19/23, 6:22:48 PM WEST
+selectButton(PAResourceEtoH.GettingStartedView_CREATE_NEW_PROJECT, "Create Project"); // y
+// Run Command: PAResourceCommand.PACommandNames_NEW_PROJECT
+selectButton("NEXT", "Next >"); // JButton
+setText(PAResourceOtoP.ProjectNameChooser_PROJECT_NAME, "ultra96v2_dfx"); // aa
+selectButton("NEXT", "Next >"); // JButton
+selectButton("BACK", "< Back"); // JButton
+selectButton(PAResourceOtoP.ProjectNameChooser_CHOOSE_PROJECT_LOCATION, (String) null); // s
+setFolderChooser("/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/vivado_project");
+// Elapsed time: 125 seconds
+selectCheckBox(PAResourceOtoP.ProjectNameChooser_CREATE_PROJECT_SUBDIRECTORY, "Create project subdirectory", false); // g: FALSE
+selectButton("NEXT", "Next >"); // JButton
+// [GUI Memory]: 105 MB (+107193kb) [00:04:26]
+// [Engine Memory]: 1,794 MB (+1729640kb) [00:04:26]
+// [GUI Memory]: 115 MB (+5500kb) [00:04:27]
+selectButton("NEXT", "Next >"); // JButton
+selectTab(PAResourceOtoP.PartChooser_TABBED_PANE, (HResource) null, "Boards", 1); // i
+// HMemoryUtils.trashcanNow. Engine heap size: 1,814 MB. GUI used memory: 246 MB. Current time: 7/19/23, 6:27:03 PM WEST
+// [GUI Memory]: 204 MB (+87141kb) [00:04:29]
+setText("PAResourceAtoD.BoardChooser_BOARD_TABLE_SEARCH_FIELD", "ultra96"); // OverlayTextField
+selectTreeTable(PAResourceAtoD.BoardChooser_BOARD_TABLE, "Ultra96-V2 Single Board Computer ; Ultra96-V2 Single Board Computer ; Ultra96-V2 Single Board Computer ; avnet.com ; 1.2 ; xczu3eg-sbva484-1-i ; 484 ; Rev 2 ; 82 ; 70560 ; 141120 ; 216 ; 0 ; 360 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 3 ;  ; 0 ;  ;  ; 0 ;  ;  ; -40 ; 100 ; 100 ; I ; 0.825 ; 0.850 ; 0.876", 1, "Ultra96-V2 Single Board Computer", 0, false); // ah
+selectButton("NEXT", "Next >"); // JButton
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: create_project ultra96v2_dfx /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/vivado_project -part xczu3eg-sbva484-1-i 
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  2933 ms.
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2021.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: create_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 7589.215 ; gain = 28.016 ; free physical = 126 ; free virtual = 11635 
+// TclEventType: BOARD_MODIFIED
+// Tcl Message: set_property board_part avnet.com:ultra96v2:part0:1.2 [current_project] 
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 166 seconds
+dismissDialog("Create Project"); // bA
+dismissDialog("New Project"); // f
+// HMemoryUtils.trashcanNow. Engine heap size: 1,817 MB. GUI used memory: 71 MB. Current time: 7/19/23, 6:27:38 PM WEST
+// Elapsed time: 21 seconds
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aL
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // D
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_OR_CREATE_SOURCE_FILE, "Add"); // D
+selectMenuItem(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files..."); // ao
+setFileChooser("/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_core.v");
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+String[] filenames31467 = {"/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes.v", "/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_core.v", "/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_decipher_block.v", "/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_encipher_block.v", "/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_inv_sbox.v", "/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_key_mem.v", "/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/aes_sbox.v", "/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/fifo_buff.v", "/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/design/icap_inst.v"};
+setFileChooser(filenames31467);
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 24 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 10 seconds
+dismissDialog("Add Sources"); // bA
+// HMemoryUtils.trashcanNow. Engine heap size: 1,898 MB. GUI used memory: 80 MB. Current time: 7/19/23, 6:28:23 PM WEST
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 1,899 MB (+16239kb) [00:05:52]
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 10 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, icap_inst (icap_inst.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, aes (aes.v)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, icap_inst (icap_inst.v)]", 2, false); // D
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // D
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_OR_CREATE_CONSTRAINT_FILES, "Add or create constraints"); // a
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceAtoD.ConstraintsChooserPanel_ADD_FILES, "Add Files"); // a
+setFileChooser("/home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/constraints/IO_constraints.xdc");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 11 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -fileset constrs_1 -norecurse /home/luiscarlos/Desktop/ultra/secure_tiles2/vivado/ultra96v2_dfx/src/constraints/IO_constraints.xdc 
+// Elapsed time: 18 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "git init", true); // l
+// Tcl Command: 'git init'
+// Tcl Command: 'git init'
+// Tcl Message: git init 
