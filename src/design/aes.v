@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-	module aes #
+	module aes # 
 	(
 		// Users to add parameters here
         
@@ -44,32 +44,32 @@
         input wire  [127:0] in_IV,
         input wire  [255:0] dbg_key,
         input wire  [1:0] dbg_ENCLEN        ,
-        output wire dbg_ENCDEC     ,
-        output wire dbg_core_init     ,
-        output wire dbg_core_next     ,
-        output wire dbg_core_ready    ,
-        output wire [255:0]dbg_core_key      ,
-        output wire  dbg_KEYLEN        ,
-        output wire [127:0] dbg_core_block    ,
-        output wire [127:0] dbg_core_result   ,
-        output wire dbg_core_valid    ,
+//        output wire dbg_ENCDEC     ,
+//        output wire dbg_core_init     ,
+//        output wire dbg_core_next     ,
+//        output wire dbg_core_ready    ,
+//        output wire [255:0]dbg_core_key      ,
+//        output wire  dbg_KEYLEN        ,
+//        output wire [127:0] dbg_core_block    ,
+//        output wire [127:0] dbg_core_result   ,
+//        output wire dbg_core_valid    ,
         
-        output wire [127:0] dbg_send_fifo_out,
-        output wire [1:0]   dbg_send_4word_cnt,
+//        output wire [127:0] dbg_send_fifo_out,
+//        output wire [1:0]   dbg_send_4word_cnt,
         
         
-        output wire dbg_send_fifo_empty    ,
-        output wire [3:0]dbg_send_state         ,
-        output wire [3:0]dbg_send_next_state    ,
-        output wire dbg_send_fifo_re       ,
-        output wire dbg_send_cnt_we        ,
+//        output wire dbg_send_fifo_empty    ,
+//        output wire [3:0]dbg_send_state         ,
+//        output wire [3:0]dbg_send_next_state    ,
+//        output wire dbg_send_fifo_re       ,
+//        output wire dbg_send_cnt_we        ,
         
-        output wire [3:0]       dbg_aes_state            ,
-        output wire [3:0]       dbg_aes_next_state       ,
-        output wire [127:0]     dbg_core_last_block      ,
-        output wire             dbg_core_last_block_we   ,
-        output wire             dbg_core_new_IV          ,
-        output wire  [127:0]    dbg_core_result_cbc      ,
+//        output wire [3:0]       dbg_aes_state            ,
+//        output wire [3:0]       dbg_aes_next_state       ,
+//        output wire [127:0]     dbg_core_last_block      ,
+//        output wire             dbg_core_last_block_we   ,
+//        output wire             dbg_core_new_IV          ,
+//        output wire  [127:0]    dbg_core_result_cbc      ,
         
         
         
@@ -136,31 +136,31 @@ assign		m00_axi_bready= 0;
 
 
 
-assign dbg_ENCDEC          = ENCDEC         ;
-assign dbg_core_init       = core_init      ;
-assign dbg_core_next       = core_next      ;
-assign dbg_core_ready      = core_ready     ;
-assign dbg_core_key        = core_key       ;
-assign dbg_KEYLEN          = KEYLEN         ;
-assign dbg_core_block      = core_block     ;
-assign dbg_core_result     = core_result    ;
-assign dbg_core_valid      = core_valid     ;
+//assign dbg_ENCDEC          = ENCDEC         ;
+//assign dbg_core_init       = core_init      ;
+//assign dbg_core_next       = core_next      ;
+//assign dbg_core_ready      = core_ready     ;
+//assign dbg_core_key        = core_key       ;
+//assign dbg_KEYLEN          = KEYLEN         ;
+//assign dbg_core_block      = core_block     ;
+//assign dbg_core_result     = core_result    ;
+//assign dbg_core_valid      = core_valid     ;
 
-assign dbg_send_fifo_out    = send_fifo_out;
-assign dbg_send_4word_cnt = send_4word_cnt;
-assign dbg_send_fifo_empty   = send_fifo_empty   ; 
-assign dbg_send_state        = send_state        ;
-assign dbg_send_next_state   = send_next_state   ;
-assign dbg_send_fifo_re      = send_fifo_re      ; 
-assign dbg_send_cnt_we       = send_cnt_we       ; 
+//assign dbg_send_fifo_out    = send_fifo_out;
+//assign dbg_send_4word_cnt = send_4word_cnt;
+//assign dbg_send_fifo_empty   = send_fifo_empty   ; 
+//assign dbg_send_state        = send_state        ;
+//assign dbg_send_next_state   = send_next_state   ;
+//assign dbg_send_fifo_re      = send_fifo_re      ; 
+//assign dbg_send_cnt_we       = send_cnt_we       ; 
  
  
-assign dbg_aes_state           = aes_state           ;
-assign dbg_aes_next_state      = aes_next_state      ;
-assign dbg_core_last_block     = core_last_block     ;
-assign dbg_core_last_block_we  = core_last_block_we  ;
-assign dbg_core_new_IV         = core_new_IV         ;
-assign dbg_core_result_cbc     = core_result_cbc     ;
+//assign dbg_aes_state           = aes_state           ;
+//assign dbg_aes_next_state      = aes_next_state      ;
+//assign dbg_core_last_block     = core_last_block     ;
+//assign dbg_core_last_block_we  = core_last_block_we  ;
+//assign dbg_core_new_IV         = core_new_IV         ;
+//assign dbg_core_result_cbc     = core_result_cbc     ;
  
  
 ///////////////////////////////////////////////////////////////////////////////// ADDRES DECODING ///////////////////////////////////////////////////////////////////////////
