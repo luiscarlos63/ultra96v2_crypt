@@ -71,3 +71,28 @@ this will generate a folder with the bitstreams in the format expected by **ICAP
 ./encrypt.sh
 ~~~
 This will encrypt the bitsreams, now youjust need to copy them to the SD card.
+
+### Export hardware
+~~~
+File->Export->Export Hardware
+~~~
+Use the option *include bistream*
+
+
+### Software
+#### Platform
+In Vitis create a platform based on the **.xsa** from vivado exported hardware.
+
+In the *Board Support Package -> modify BSP Settings* and add **xilffs** library
+Also, you need to change UART0 to UART1.
+
+#### Application
+Create an Application based on the previous mentions platform.
+Add the sources from  *PROJECT_FOLDER/sw*.
+
+#### compile and run.
+
+### Interation.
+The Application allows 6 options:
+- Options 1 to 3: Reading.
+- Options 4 to 6: Reconfiguration. After selecting the reconfiguration option, you will be prompted to choose the region to reconfigure (RP_1 - 1, RP_2 - 2, or RP_3 - 3).
