@@ -16,8 +16,11 @@ Open vivado in the cloned project folder
   Vivado->Run TCL script->/ultra96v2_dfx.tcl
 ~~~
 This opens and sets the Vivado project. The center of system is the
-Block Design. The project is ready to generate bitstreams.
+Block Design. The project is **almost** ready to generate bitstreams.
 
+### Pre-Systesis
+The only thing left to do is to create a wrapper to the Block Design.
+- Right click on *design_1*-> Create HDL Wrapper.
 
 ### Systesis
 Systesis runs all the Out-Of-Context modules, including the 
