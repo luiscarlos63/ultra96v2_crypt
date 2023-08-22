@@ -21,3 +21,14 @@ resize_pblock [get_pblocks pblock_RP_3] -add {RAMB18_X3Y12:RAMB18_X4Y23}
 resize_pblock [get_pblocks pblock_RP_3] -add {RAMB36_X3Y6:RAMB36_X4Y11}
 set_property SNAPPING_MODE ON [get_pblocks pblock_RP_3]
 
+
+set_property IOSTANDARD LVCMOS33 [get_ports {gpio_io_i[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {gpio_io_o[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {gpio_io_o[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports UART_rxd]
+set_property IOSTANDARD LVCMOS33 [get_ports UART_txd]
+set_property PACKAGE_PIN D7 [get_ports {gpio_io_i[0]}]
+set_property PACKAGE_PIN F8 [get_ports {gpio_io_o[1]}]
+set_property PACKAGE_PIN F7 [get_ports {gpio_io_o[0]}]
+set_property PACKAGE_PIN A7 [get_ports UART_rxd]
+set_property PACKAGE_PIN G6 [get_ports UART_txd]

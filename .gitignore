@@ -4,3 +4,7 @@ vivado_project/*
 ./*.log
 ./*.debug
 .Xil/*
+hd_visual/*
+vivado_*
+vivado.jou
+vivado.log
